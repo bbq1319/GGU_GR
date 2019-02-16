@@ -61,8 +61,8 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
         if(view.getId() == R.id.ggu_home) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ggu.ac.kr"));
             startActivity(intent);
-//        } else if(view.getId() == R.id.notice) {
-//            fragment = new FragNoticeMain();
+        } else if(view.getId() == R.id.ggu_notice) {
+            fragment = new GGUNoticeFragment();
         } else if(view.getId() == R.id.ggu_bus){
             fragment = new GGUBusFragment();
         } else if(view.getId() == R.id.ggu_menu){
