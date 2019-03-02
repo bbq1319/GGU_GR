@@ -9,4 +9,30 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Main Text -->
+    <string name="main_notice">공지사항</string>
+    <string name="main_menu">오늘의 학식</string>
+    <string name="main_bus">현재 탈 수 있는 덕성 버스는?</string>
+
+    <!-- nav Text -->
+    <string name="nav_home">홈</string>
+    <string name="nav_notice">공지</string>
+    <string name="nav_menu">식단표</string>
+    <string name="nav_bus">버스시간표</string>
+    <string name="nav_delivery">배달음식</string>
+
+    <!-- menu Text -->
+    <string name="menu_top_title">오늘 뭐먹지?</string>
+    <string name="menu_bottom_title">금주의 식단</string>
+    <string name="menu_breakfast">조식</string>
+    <string name="menu_lunch">중식</string>
+    <string name="menu_dinner">석식</string>
+
+    <!-- bus Text -->
+    <string name="bus_title">쉽게 확인하고\n버스 놓치지 말자!</string>
+    <string name="bus_school_timetable">학교버스 시간표 바로가기</string>
+    <string name="ter_to_bus">터미널 > 학교</string>
+    <string name="bus_to_ter">학교 > 터미널</string>
+
 </resources>

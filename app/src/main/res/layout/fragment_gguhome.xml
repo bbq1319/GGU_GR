@@ -4,242 +4,393 @@
         <variable name="home" type="com.ggu.gguri.GGUHomeFragment" />
     </data>
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <!-- TODO: Update blank fragment layout -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- 배너 -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
+                android:layout_height="320dp"
+                android:background="@color/colorSkyBlue">
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorBoundary" />
+
+            <!-- 공지사항 -->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="160dp"-->
+                <!--android:orientation="vertical"-->
+                <!--android:paddingLeft="20dp"-->
+                <!--android:paddingTop="20dp"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:paddingBottom="20dp">-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/main_go_notice"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="left"-->
+                        <!--android:text="@string/main_notice"-->
+                        <!--android:textSize="24dp"-->
+                        <!--android:textColor="@color/colorBlack"-->
+                        <!--android:textStyle="bold" />-->
+
+                    <!--<View-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="0dp"-->
+                        <!--android:layout_weight="1"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="right"-->
+                        <!--android:text=">"-->
+                        <!--android:textSize="24dp"-->
+                        <!--android:textColor="@color/colorBlack"-->
+                        <!--android:textStyle="bold"/>-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="3"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:paddingTop="15dp">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="left"-->
+                        <!--android:text="2019상반기 함민마런ㅇㄹ"-->
+                        <!--android:textSize="18dp"-->
+                        <!--android:textColor="@color/colorBlack"-->
+                        <!--android:textStyle="bold" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="[글로벌] 12312;ㅣ낭멀니ㅏㅇㅁ런ㅁ아ㅣ런ㅁ이ㅏ;러\nㅁㄴㅇㅁㄴㅇㄴㅇㄻㄴ아ㅣㄹ\nㅁㄴㅇㅁㄴㅇㄴㅇㄻㄴ아ㅣㄹ"-->
+                        <!--android:textSize="14dp"-->
+                        <!--android:textColor="@color/colorBlack"/>-->
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorBoundary" />
+
+            <!-- 오늘의 학식 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
                 android:orientation="vertical"
-                android:background="@drawable/bg_main_top">
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp">
+
+                <LinearLayout
+                    android:id="@+id/main_go_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="@string/main_menu"
+                        android:textSize="24dp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text=">"
+                        android:textSize="24dp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_height="0dp"
+                    android:layout_weight="7"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
+
+                    <TextView
+                        android:id="@+id/main_menu_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="2,23 (토)"
+                        android:textSize="18dp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold" />
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="10dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="10dp"
+                                android:text="@string/menu_breakfast"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="16dp" />
+
+                            <TextView
+                                android:id="@+id/main_menu_breakfast"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorBlack"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="10dp"
+                                android:text="@string/menu_lunch"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorBlack"/>
+
+                            <TextView
+                                android:id="@+id/main_menu_lunch"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorBlack"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="10dp"
+                                android:text="@string/menu_dinner"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorBlack"/>
+
+                            <TextView
+                                android:id="@+id/main_menu_dinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorBlack"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorBoundary" />
+
+            <!-- 버스 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp">
+
+                <LinearLayout
+                    android:id="@+id/main_go_bus"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="@string/main_bus"
+                        android:textSize="24dp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text=">"
+                        android:textSize="24dp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/home_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="24dp"/>
+                            android:layout_gravity="right"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/ter_to_bus"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorBlack"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/main_bus_terminal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:layout_gravity="right"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorBlack"/>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
                         android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/bus_to_ter"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorBlack"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/main_bus_school"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:layout_gravity="right"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorBlack"/>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-
-                </LinearLayout>
-
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorBoundary" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                android:orientation="vertical">
+                android:layout_height="160dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_margin="10dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_margin="5dp">
-
-                        <ImageView
-                            android:id="@+id/ggu_home"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:src="@drawable/home_ggu"
-                            android:layout_weight="2"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="HOME"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_margin="5dp">
-
-                        <ImageView
-                            android:id="@+id/ggu_notice"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:src="@drawable/home_notice"
-                            android:layout_weight="2"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="NOTICE"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_margin="5dp">
-
-                        <ImageView
-                            android:id="@+id/ggu_bus"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:src="@drawable/home_bus"
-                            android:layout_weight="2"/>
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="BUS\nTIMETABLE"
-                            android:textSize="14dp"
-                            android:textColor="@color/colorBlack"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_margin="10dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_margin="5dp">
-
-                        <ImageView
-                            android:id="@+id/ggu_menu"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:src="@drawable/home_menu"
-                            android:layout_weight="2"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="MENU"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_margin="5dp">
-
-                        <ImageView
-                            android:id="@+id/ggu_delivery"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:src="@drawable/home_delivery"
-                            android:layout_weight="2"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="DELIVERY"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_margin="5dp">
-
-                        <ImageView
-                            android:id="@+id/ggu_my_info"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:src="@drawable/home_myinfo"
-                            android:layout_weight="2"/>
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="MYINFO"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
             </LinearLayout>
+
 
         </LinearLayout>
 
-    </FrameLayout>
+    </ScrollView>
 
 </layout>

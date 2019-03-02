@@ -38,6 +38,7 @@ public class GGUBusFragment extends Fragment {
 
     int termArrLength;
     int schoolArrLength;
+    int curTimeArr;
 
     public GGUBusFragment() {
         // Required empty public constructor
@@ -81,20 +82,34 @@ public class GGUBusFragment extends Fragment {
             schoolArr[i].setText(schoolTime[i]);
         }
 
+        getCurrentTTS(now);
+        getCurrentSTT(now);
+
+        return v;
+    }
+
+    public String getCurrentTTS(String now) {
         for(int i=0; i<termArrLength; i++) {
             if(now.compareTo(termTime[i]) < 0){
                 termArr[i].setTextColor(Color.RED);
-                break;
-            }
-        }
-        for(int i=0; i<schoolArrLength; i++) {
-            if(now.compareTo(schoolTime[i]) < 0){
-                schoolArr[i].setTextColor(Color.RED);
+                curTimeArr = i;
                 break;
             }
         }
 
-        return v;
+        return termTime[curTimeArr];
+    }
+
+    public String getCurrentSTT(String now) {
+        for(int i=0; i<schoolArrLength; i++) {
+            if(now.compareTo(schoolTime[i]) < 0){
+                schoolArr[i].setTextColor(Color.RED);
+                curTimeArr = i;
+                break;
+            }
+        }
+
+        return schoolTime[curTimeArr];
     }
 
 }
