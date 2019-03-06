@@ -12,6 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.ggu.gguri.databinding.FragmentGgumenuBinding;
 
@@ -31,12 +34,14 @@ import io.reactivex.observers.DefaultObserver;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.ggu.gguri.R.id.frame;
+import static com.ggu.gguri.R.id.gone;
+import static com.ggu.gguri.R.id.time;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GGUMenuFragment extends Fragment {
+public class GGUMenuFragment extends Fragment implements View.OnClickListener{
 
     FragmentGgumenuBinding binding;
     ProgressDialog asyncDialog;
@@ -66,6 +71,11 @@ public class GGUMenuFragment extends Fragment {
         asyncDialog = ProgressDialog.show(
                 getActivity(), "MyProgressBarTitle", "잠시만 기다려주세요...", true, false
         );
+
+        binding.menuTimetable.setOnClickListener(this);
+        binding.menuBreakfast.setOnClickListener(this);
+        binding.menuLunch.setOnClickListener(this);
+        binding.menuDinner.setOnClickListener(this);
 
         // 데이터 통신
         Observable.fromCallable(() -> {
@@ -254,5 +264,21 @@ public class GGUMenuFragment extends Fragment {
         return getNowDay;
     }
 
+
+    @Override
+    public void onClick(View v) {
+        LinearLayout timeTable = getActivity().findViewById(R.id.menu_timetable);
+        int mealLength = timeTable.getChildCount();
+
+        for(int i=0; i<mealLength; i++) {
+            TextView a = timeTable.getChildAt(i).findViewById(timeTable.getChildAt(i).getId());
+            if(timeTable.getChildAt(i).getId() == v.getId()) {
+                a.setTextColor(getResources().getColor(R.color.colorBlue));
+            }
+            else {
+                a.setTextColor(getResources().getColor(R.color.unPointColor));
+            }
+        }
+    }
 
 }
