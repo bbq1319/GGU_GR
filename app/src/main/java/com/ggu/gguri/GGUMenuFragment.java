@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,8 +33,6 @@ import io.reactivex.observers.DefaultObserver;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.ggu.gguri.R.id.frame;
-import static com.ggu.gguri.R.id.gone;
-import static com.ggu.gguri.R.id.time;
 
 
 /**
@@ -44,17 +41,9 @@ import static com.ggu.gguri.R.id.time;
 public class GGUMenuFragment extends Fragment implements View.OnClickListener{
 
     FragmentGgumenuBinding binding;
-    ProgressDialog asyncDialog;
     Fragment fragment = null;
 
-    String[] week = {"일", "월", "화", "수", "목", "금", "토"};
-
-    SimpleDateFormat curDate, curDay, curHour;
-    String getNowDate, getNowDay, getNowHour;
-    Date now = new Date();
-
-    int getMonth, getDay, int_meal_time;
-    String getMM, getDD, getToday;
+    GetMenuList getMenuList = new GetMenuList();
 
     public GGUMenuFragment() {
         // Required empty public constructor
@@ -67,122 +56,11 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggumenu, container, false);
         View v = binding.getRoot();
 
-        // 로딩 창
-        asyncDialog = ProgressDialog.show(
-                getActivity(), "MyProgressBarTitle", "잠시만 기다려주세요...", true, false
-        );
-
-        binding.menuTimetable.setOnClickListener(this);
-        binding.menuBreakfast.setOnClickListener(this);
-        binding.menuLunch.setOnClickListener(this);
-        binding.menuDinner.setOnClickListener(this);
-
-        // 데이터 통신
-        Observable.fromCallable(() -> {
-            HashMap result = new HashMap();
-
-            try {
-                // 파싱 할 url 설정
-                String strUrl = "https://www.ggu.ac.kr/sub0504/";
-                Document doc = Jsoup.connect(strUrl).get();
-
-                // 파싱 해오기
-                Elements date = doc.select(".table-wrap").eq(1).select("table > tbody > tr > th");
-                Elements day = doc.select(".table-wrap").eq(1).select("table > tbody > tr > td");
-
-                // 시간 설정
-                System.out.println(getToday());
-                setText(binding.mainMenuDay, getToday());
-
-                // 날짜 전달
-                for (int i = 0; i < date.size(); i++) {
-                    // 오늘 날 찾기( ex) 1/3 )
-                    if ((getMonth + "/" + getDay + " " + "[" + getNowDay + "]").equals(date.get(i).text())) {
-
-                        // 날짜 설정
-                        result.put("date", date.get(i).text());
-
-                        // 조식 / 메뉴 설정
-                        if (0 <= int_meal_time && int_meal_time < 10) {
-                            result.put("meal", date.get(0).text());
-                            result.put("main", day.get(i * 3 - 3).text());
-                        }
-
-                        // 중식 / 메뉴 설정
-                        else if (10 <= int_meal_time && int_meal_time < 14) {
-                            result.put("meal", date.get(1).text());
-                            result.put("main", day.get(i * 3 - 2).text());
-                        }
-
-                        // 석식 / 메뉴 설정
-                        else if (14 <= int_meal_time && int_meal_time < 24) {
-                            result.put("meal", date.get(2).text());
-                            result.put("main", day.get(i * 3 - 1).text());
-                        }
-                    }
-                    // 오늘 날 찾기( ex) 01/03 )
-                    else if ((getMM + "/" + getDD + " " + "[" + getNowDay + "]").equals(date.get(i).text())) {
-
-                        // 날짜 설정
-                        result.put("date", date.get(i).text());
-
-                        // 조식 / 메뉴 설정
-                        if (0 <= int_meal_time && int_meal_time < 10) {
-                            result.put("meal", date.get(0).text());
-                            result.put("main", day.get(i * 3 - 3).text());
-                        }
-
-                        // 중식 / 메뉴 설정
-                        else if (10 <= int_meal_time && int_meal_time < 14) {
-                            result.put("meal", date.get(1).text());
-                            result.put("main", day.get(i * 3 - 2).text());
-                        }
-
-                        // 석식 / 메뉴 설정
-                        else if (14 <= int_meal_time && int_meal_time < 24) {
-                            result.put("meal", date.get(2).text());
-                            result.put("main", day.get(i * 3 - 1).text());
-                        }
-                    }
-
-                }
-
-                // 로딩 중
-                for (int i = 0; i < 1; i++) {
-                    Thread.sleep(500);
-                }
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-
-            }
-
-            return result;
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        new DefaultObserver<Map>() {
-                    @Override
-                    public void onNext(Map map) {
-                        onPostExecute(map);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("Error","Error");
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+        getMenuList.doInBackground(getActivity());
 
         return v;
     }
-
+/*
     public void onPostExecute(Map<String, String> map){
 
         asyncDialog.dismiss();
@@ -230,56 +108,7 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
             dialog.show();
 
         }
-    }
-
-    public String getToday() {
-        curDate = new SimpleDateFormat("MM/dd");
-        curDay = new SimpleDateFormat("E");
-        curHour = new SimpleDateFormat("HH");
-        getNowDate = curDate.format(now);
-        getNowDay = curDay.format(now);
-        getNowHour = curHour.format(now);
-
-        // 월, 일 구하기
-        // MM/dd 형식과 M/d 형식으로 구분
-        String[] dates = getNowDate.split("[/ ]");
-
-        // M/d 형식
-        if (dates.length > 1) {
-            getMonth = Integer.valueOf(dates[0]);
-            getDay = Integer.valueOf(dates[1]);
-        } else {
-            getMonth = 0;
-            getDay = 0;
-        }
-
-
-
-        // MM/dd 형식
-        getMM = dates[0];
-        getDD = dates[1];
-
-        // 시간 int형으로 변경
-        int_meal_time = Integer.parseInt(getNowHour);
-
-        // 날짜 한국어로 변경
-        Calendar cal = Calendar.getInstance();
-        getNowDay = week[cal.get(Calendar.DAY_OF_WEEK) - 1];
-
-        getToday = getNowDate + "(" + getNowDay + ")";
-
-        return getToday;
-    }
-
-    private void setText(final TextView text, final String value) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                text.setText(value);
-            }
-        });
-
-    }
+    }*/
 
     @Override
     public void onClick(View v) {

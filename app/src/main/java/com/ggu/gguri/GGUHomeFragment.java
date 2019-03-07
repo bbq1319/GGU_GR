@@ -43,7 +43,6 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
         binding.mainMenuBreakfast.setOnClickListener(this);
         binding.mainMenuLunch.setOnClickListener(this);
         binding.mainMenuDinner.setOnClickListener(this);
-        binding.mainMenuDay.setText(gguMenuFragment.getToday);
 
         binding.mainGoBus.setOnClickListener(this);
         binding.mainBusTerminal.setText(gguBusFragment.getCurrentTTS(now));
