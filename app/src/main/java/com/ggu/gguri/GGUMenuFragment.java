@@ -91,7 +91,8 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
                 Elements day = doc.select(".table-wrap").eq(1).select("table > tbody > tr > td");
 
                 // 시간 설정
-                getToday();
+                System.out.println(getToday());
+                setText(binding.mainMenuDay, getToday());
 
                 // 날짜 전달
                 for (int i = 0; i < date.size(); i++) {
@@ -191,10 +192,16 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
 //                binding.menuDate.setText(map.get("date"));
 //                binding.menuDay.setText(map.get("meal"));
 
+            System.out.println("map.date" + map.get("date"));
+            System.out.println("map.meal" + map.get("meal"));
+
             // 메뉴 출력
-            String getFoodMain = map.get("main");
+            String getFoodMain = "";
+            getFoodMain = map.get("main");
             System.out.println(getFoodMain);
-            String[] setFoodMain = getFoodMain.split("\\s");
+            if(getFoodMain != null || getFoodMain != "") {
+            }
+
 
 //                for(int n=0;n<setFoodMain.length;n++)
 //                    binding.menuList.append(setFoodMain[n]+"\n");
@@ -259,11 +266,18 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
 
         getToday = getNowDate + "(" + getNowDay + ")";
 
-
-
-        return getNowDay;
+        return getToday;
     }
 
+    private void setText(final TextView text, final String value) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                text.setText(value);
+            }
+        });
+
+    }
 
     @Override
     public void onClick(View v) {
