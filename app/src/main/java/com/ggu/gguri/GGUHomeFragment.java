@@ -22,6 +22,7 @@ import static com.ggu.gguri.R.id.frame;
 public class GGUHomeFragment extends Fragment implements View.OnClickListener {
 
     GGUBusFragment gguBusFragment = new GGUBusFragment();
+    GGUMenuFragment gguMenuFragment = new GGUMenuFragment();
 
     SimpleDateFormat format = new SimpleDateFormat("HH:mm");
     String now = format.format(new Date());
@@ -42,11 +43,11 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
         binding.mainMenuBreakfast.setOnClickListener(this);
         binding.mainMenuLunch.setOnClickListener(this);
         binding.mainMenuDinner.setOnClickListener(this);
+        binding.mainMenuDay.setText(gguMenuFragment.getToday);
 
         binding.mainGoBus.setOnClickListener(this);
         binding.mainBusTerminal.setText(gguBusFragment.getCurrentTTS(now));
         binding.mainBusSchool.setText(gguBusFragment.getCurrentSTT(now));
-
 
 
 //        binding.gguHome.setOnClickListener(this);

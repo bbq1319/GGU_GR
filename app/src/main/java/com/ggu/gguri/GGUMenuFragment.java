@@ -253,6 +253,8 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
             getDay = 0;
         }
 
+
+
         // MM/dd 형식
         getMM = dates[0];
         getDD = dates[1];
