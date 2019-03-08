@@ -41,7 +41,7 @@
                     android:paddingTop="15dp">
 
                     <TextView
-                        android:id="@+id/main_menu_day"
+                        android:id="@+id/main_menu_day_top"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
@@ -99,20 +99,43 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/menu_table"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
+                            android:paddingBottom="10dp"
+                            android:background="@color/colorSkyBlue">
 
                             <TextView
-                                android:id="@+id/menu_meal"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/colorSkyBlue"
+                                android:id="@+id/menu_breakfast_meal"
+                                android:visibility="gone"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="100dp"
-                                android:text="차돌된장찌개 잡곡밥 해물파전 명엽채볶음 참나물겉절이 깍두기 오미자쥬스"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="22dp" />
+
+                            <TextView
+                                android:id="@+id/menu_lunch_meal"
+                                android:visibility="gone"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="100dp"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="22dp" />
+
+                            <TextView
+                                android:id="@+id/menu_dinner_meal"
+                                android:visibility="gone"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="100dp"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="22dp" />
 
@@ -134,12 +157,11 @@
             <!-- 오늘의 학식 -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp">
+                android:paddingRight="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -159,10 +181,10 @@
                     android:paddingTop="15dp">
 
                     <TextView
+                        android:id="@+id/main_menu_day_bottom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:text="2,23 (토)"
                         android:textSize="18dp"
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold" />
@@ -171,9 +193,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="10dp"
                         android:paddingTop="10dp"
-                        android:paddingRight="20dp"
+                        android:paddingRight="10dp"
                         android:paddingBottom="10dp"
                         android:weightSum="3">
 
@@ -197,7 +219,7 @@
                                 android:id="@+id/main_menu_breakfast"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textSize="16dp"
+                                android:textSize="12dp"
                                 android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
@@ -222,7 +244,7 @@
                                 android:id="@+id/main_menu_lunch"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textSize="16dp"
+                                android:textSize="12dp"
                                 android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
@@ -247,7 +269,7 @@
                                 android:id="@+id/main_menu_dinner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textSize="16dp"
+                                android:textSize="12dp"
                                 android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>

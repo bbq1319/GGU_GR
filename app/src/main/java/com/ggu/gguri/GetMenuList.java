@@ -3,9 +3,10 @@ package com.ggu.gguri;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.databinding.BindingAdapter;
+import android.databinding.ViewDataBinding;
+import android.os.Handler;
 import android.util.Log;
-import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jsoup.Jsoup;
@@ -23,21 +24,28 @@ import io.reactivex.schedulers.Schedulers;
 public class GetMenuList {
 
     CommonUtil commonUtil = new CommonUtil();
+    ViewDataBinding binding;
 
     ProgressDialog dialog;
-    HashMap result = new HashMap();
+    String today, cur_meal, cur_breakfast, cur_lunch, cur_dinner = "";
     String months = "MM";
     String month = "M";
     String days = "dd";
     String day = "d";
-    String hour = "hh";
+    String hour = "HH";
 
-    public final void doInBackground(final Activity activity) {
+    interface onPostInterface{
+        void onPostExecute(Map map);
+    }
+
+    public final void doInBackground(final Activity activity, onPostInterface callBack) {
         dialog = ProgressDialog.show(activity, "로딩 중", "잠시만 기다려주세요...", true, false);
 
-        Observable.fromCallable(() -> {
+         Observable.fromCallable(() -> {
+            HashMap result = new HashMap();
 
             try {
+                System.out.println("Observable in");
                 String strUrl = "https://www.ggu.ac.kr/sub0504/";
                 Document doc = Jsoup.connect(strUrl).get();
 
@@ -49,16 +57,23 @@ public class GetMenuList {
                 int par_day_length = par_day.size();
                 String cur_date = commonUtil.getCurTime(month) + "/" + commonUtil.getCurTime(day);
                 String cur_dates = commonUtil.getCurTime(months) + "/" + commonUtil.getCurTime(days);
-                String today, cur_meal, cur_breakfast, cur_lunch, cur_dinner = "";
 
+                result.put("par_day_length", par_day_length);
                 for(int i=0; i<par_day_length; i++) {
                     result.put("menu_map_" + i, par_row.get(i));
 
-                    if(cur_date.equals(par_day.get(i).text()) || cur_dates.equals(par_day.get(i).text())) {
-                        today = par_day.get(i).text();
-                        cur_breakfast = par_row.get(i).select("td").eq(0).text();
-                        cur_lunch = par_row.get(i).select("td").eq(1).text();
-                        cur_dinner = par_row.get(i).select("td").eq(2).text();
+                    System.out.println("cur_i : " + i);
+                    System.out.println("par_day_get : " + par_day.get(i).text());
+                    System.out.println("cur_date : " + cur_date);
+                    System.out.println("cur_dates : " + cur_dates);
+                    System.out.println("contain fir : " + cur_date.contains(par_day.get(i).text()));
+                    System.out.println("contain sec : " + cur_dates.contains(par_day.get(i).text()));
+
+                    if(par_day.get(i).text().contains(cur_date) || par_day.get(i).text().contains(cur_dates)) {
+                        result.put("today", par_day.get(i).text());
+                        result.put("cur_breakfast", par_row.get(i).select("td").eq(0).text());
+                        result.put("cur_lunch", par_row.get(i).select("td").eq(1).text());
+                        result.put("cur_dinner", par_row.get(i).select("td").eq(2).text());
                     }
                 }
 
@@ -75,7 +90,7 @@ public class GetMenuList {
                         new DefaultObserver<Map>() {
                             @Override
                             public void onNext(Map map) {
-                                onPostExecute(map);
+                                callBack.onPostExecute(map);
                             }
 
                             @Override
@@ -85,41 +100,36 @@ public class GetMenuList {
 
                             @Override
                             public void onComplete() {
-
+                                dialog.dismiss();
                             }
                         });
-
-    }
-
-    public void onPostExecute(Map map) {
-        dialog.dismiss();
-
-
     }
 
     // 현재 식사시간 가져오기
-    public String getCurMealTime(Activity activity) {
+    public final String getCurMealTime(Activity activity) {
+        int curHour = 0;
         String getCurTime = commonUtil.getCurTime(hour);
         String curMealTime = "";
 
-        if(getCurTime == null)
+        if(getCurTime == null) {
             Toast.makeText(activity.getApplicationContext(), "오류가 발생했습니다.", Toast.LENGTH_LONG).show();
+        }
         else {
-            int curHour = Integer.parseInt(getCurTime);
+            curHour = Integer.parseInt(getCurTime);
 
+            // 아침 설정
+            if(curHour >= 0 && curHour < 10){
+                curMealTime = activity.getResources().getString(R.string.menu_breakfast);
+                return curMealTime;
+            }
             // 점심 설정
-            if(curHour >= 10 && curHour < 14) {
+            else if(curHour >= 10 && curHour < 14) {
                 curMealTime = activity.getResources().getString(R.string.menu_lunch);
                 return curMealTime;
             }
             // 저녁 설정
-            else if(curHour >= 14 && curHour < 20) {
+            else if(curHour >= 14 && curHour < 24) {
                 curMealTime = activity.getResources().getString(R.string.menu_dinner);
-                return curMealTime;
-            }
-            // 아침 설정
-            else if(curHour > 20 && curHour < 10){
-                curMealTime = activity.getResources().getString(R.string.menu_breakfast);
                 return curMealTime;
             }
         }
