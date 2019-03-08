@@ -13,6 +13,7 @@ import com.ggu.gguri.databinding.FragmentGguhomeBinding;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import static com.ggu.gguri.R.id.frame;
 
@@ -22,6 +23,12 @@ import static com.ggu.gguri.R.id.frame;
 public class GGUHomeFragment extends Fragment implements View.OnClickListener {
 
     GGUBusFragment gguBusFragment = new GGUBusFragment();
+    GGUMenuFragment gguMenuFragment = new GGUMenuFragment();
+
+    FragmentGguhomeBinding binding;
+
+    GetMenuList getMenuList = new GetMenuList();
+    CommonUtil commonUtil = new CommonUtil();
 
     SimpleDateFormat format = new SimpleDateFormat("HH:mm");
     String now = format.format(new Date());
@@ -35,7 +42,7 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentGguhomeBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gguhome, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gguhome, container, false);
         View v = binding.getRoot();
 
         binding.mainGoMenu.setOnClickListener(this);
@@ -47,7 +54,10 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
         binding.mainBusTerminal.setText(gguBusFragment.getCurrentTTS(now));
         binding.mainBusSchool.setText(gguBusFragment.getCurrentSTT(now));
 
-
+        // TextView 세팅
+        getMenuList.doInBackground(getActivity(), map -> {
+            onPostExecute(map);
+        });
 
 //        binding.gguHome.setOnClickListener(this);
 //        binding.gguNotice.setOnClickListener(this);
@@ -57,6 +67,22 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
 //        binding.gguMyInfo.setOnClickListener(this);
 
         return v;
+    }
+
+    public void onPostExecute(Map map) {
+        // 오늘 날짜 세팅
+        commonUtil.setText(getActivity(), binding.mainMenuDay, map.get("today").toString());
+
+        // 메인 메뉴 출력
+        System.out.println(map.get("cur_breakfast").toString());
+        System.out.println(map.get("cur_breakfast").toString().replaceAll("\\s", "\n"));
+        String breakfastList = map.get("cur_breakfast").toString().replaceAll("\\s", "\n");
+        String lunchList = map.get("cur_lunch").toString().replaceAll("\\s", "\n");
+        String dinnerList = map.get("cur_dinner").toString().replaceAll("\\s", "\n");
+
+        commonUtil.setText(getActivity(), binding.mainMenuBreakfast, breakfastList);
+        commonUtil.setText(getActivity(), binding.mainMenuLunch, lunchList);
+        commonUtil.setText(getActivity(), binding.mainMenuDinner, dinnerList);
     }
 
     @Override
