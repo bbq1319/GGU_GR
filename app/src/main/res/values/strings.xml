@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GGU_GR</string>
+    <string name="app_name">GGUM</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -9,6 +9,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error">값을 불러오지 못했습니다.</string>
+    <string name="menu_error">식단표 정보가 없습니다.</string>
 
     <!-- Main Text -->
     <string name="main_notice">공지사항</string>
@@ -21,6 +23,8 @@
     <string name="nav_menu">식단표</string>
     <string name="nav_bus">버스시간표</string>
     <string name="nav_delivery">배달음식</string>
+    <string name="nav_more">더보기</string>
+    <string name="nav_login">로그인</string>
 
     <!-- menu Text -->
     <string name="menu_top_title">오늘 뭐먹지?</string>

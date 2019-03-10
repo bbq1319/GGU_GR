@@ -2,9 +2,7 @@ package com.ggu.gguri;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -58,11 +56,14 @@ public class CommonUtil {
     }
 
     public final void setText(final Activity activity, final TextView text, final String value) {
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
+        if(activity == null)
+            return;
+
+        activity.runOnUiThread(() -> {
+            if(value == null)
+                text.setText(R.string.error);
+            else
                 text.setText(value);
-            }
         });
     }
 
@@ -71,27 +72,19 @@ public class CommonUtil {
         builder.setTitle(title);
         builder.setMessage(msg);
         if(!toast) {
-            builder.setNegativeButton("아니오",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+            builder.setNegativeButton("아니오", (dialog, which) -> {
 
-                        }
-                    });
+            });
         }
-        builder.setPositiveButton("예",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+        builder.setPositiveButton("예", (dialog, which) -> {
 
-                    }
-                });
+        });
         builder.show();
 
     }
 
     // 날짜 한국어로 변경
-    public final String transKorWeek(String day) {
+    public final String transKorWeek() {
         String[] week = {"일", "월", "화", "수", "목", "금", "토"};
 
         Calendar cal = Calendar.getInstance();

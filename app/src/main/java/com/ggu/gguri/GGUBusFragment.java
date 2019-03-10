@@ -36,8 +36,8 @@ public class GGUBusFragment extends Fragment {
     TextView[] termArr;
     TextView[] schoolArr;
 
-    int termArrLength;
-    int schoolArrLength;
+    int termArrLength = termTime.length;
+    int schoolArrLength = schoolTime.length;
     int curTimeArr;
 
     public GGUBusFragment() {
@@ -64,9 +64,6 @@ public class GGUBusFragment extends Fragment {
                 binding.schoolTime9, binding.schoolTime10, binding.schoolTime11, binding.schoolTime12,
                 binding.schoolTime13
         };
-
-        termArrLength = termArr.length;
-        schoolArrLength = schoolArr.length;
 
         binding.busTime.setText(now);
 
@@ -96,7 +93,6 @@ public class GGUBusFragment extends Fragment {
                 break;
             }
         }
-
         return termTime[curTimeArr];
     }
 
@@ -108,7 +104,6 @@ public class GGUBusFragment extends Fragment {
                 break;
             }
         }
-
         return schoolTime[curTimeArr];
     }
 

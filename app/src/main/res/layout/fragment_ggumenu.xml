@@ -60,6 +60,8 @@
                             android:id="@+id/menu_timetable"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
                             android:orientation="horizontal">
 
                             <TextView
@@ -68,7 +70,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left"
                                 android:paddingRight="10dp"
-                                android:text="@string/menu_breakfast"
+                                android:text= "@string/menu_breakfast"
                                 android:textColor="@color/colorBlue"
                                 android:textSize="14dp"
                                 android:textStyle="bold" />
@@ -104,38 +106,41 @@
                             android:layout_height="match_parent"
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
-                            android:background="@color/colorSkyBlue">
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/menu_breakfast_meal"
                                 android:visibility="gone"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="100dp"
+                                android:background="@color/colorSkyBlue"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="22dp" />
 
                             <TextView
                                 android:id="@+id/menu_lunch_meal"
                                 android:visibility="gone"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="100dp"
+                                android:background="@color/colorSkyBlue"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="22dp" />
 
                             <TextView
                                 android:id="@+id/menu_dinner_meal"
                                 android:visibility="gone"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:gravity="center_vertical"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="100dp"
+                                android:background="@color/colorSkyBlue"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="22dp" />
 
@@ -180,14 +185,41 @@
                     android:orientation="vertical"
                     android:paddingTop="15dp">
 
-                    <TextView
-                        android:id="@+id/main_menu_day_bottom"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:textSize="18dp"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/main_menu_day_prev"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+
+                        <TextView
+                            android:id="@+id/main_menu_day_bottom"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold"
+                            android:textAlignment="center"/>
+
+                        <ImageView
+                            android:id="@+id/main_menu_day_next"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+
+                    </LinearLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -201,11 +233,11 @@
 
                         <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="68dp"
                             android:layout_weight="1"
+                            android:orientation="vertical"
                             android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            android:orientation="vertical">
+                            android:paddingRight="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -219,8 +251,8 @@
                                 android:id="@+id/main_menu_breakfast"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textSize="12dp"
-                                android:textColor="@color/colorBlack"/>
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12dp" />
 
                         </LinearLayout>
 
