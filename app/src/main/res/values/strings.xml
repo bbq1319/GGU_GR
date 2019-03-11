@@ -35,7 +35,8 @@
 
     <!-- bus Text -->
     <string name="bus_title">쉽게 확인하고\n버스 놓치지 말자!</string>
-    <string name="bus_school_timetable">학교버스 시간표 바로가기</string>
+    <string name="bus_school_timetable">학교버스 시간표 바로가기 ></string>
+    <string name="bus_duksung">덕성여객 시간표</string>
     <string name="ter_to_bus">터미널 > 학교</string>
     <string name="bus_to_ter">학교 > 터미널</string>
 

@@ -1,8 +1,10 @@
 package com.ggu.gguri;
 
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,24 +23,14 @@ import java.util.Date;
  */
 public class GGUBusFragment extends Fragment {
 
-    SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-    String now = format.format(new Date());
+    GetBusTime getBusTime = new GetBusTime();
+    CommonUtil commonUtil = new CommonUtil();
 
-    String[] termTime = {
-            "06:25", "07:25", "08:15", "09:30", "10:45", "12:00", "13:00",
-            "14:00", "15:30", "17:00", "18:30", "19:30", "21:00"
-    };
-    String[] schoolTime = {
-            "07:00", "08:20", "09:10", "10:25", "11:40", "12:55", "14:00",
-            "15:00", "16:25", "18:00", "19:20", "20:20", "21:45"
-    };
+    String now = "";
+    int ter_length, sch_length;
 
     TextView[] termArr;
     TextView[] schoolArr;
-
-    int termArrLength = termTime.length;
-    int schoolArrLength = schoolTime.length;
-    int curTimeArr;
 
     public GGUBusFragment() {
         // Required empty public constructor
@@ -65,46 +57,41 @@ public class GGUBusFragment extends Fragment {
                 binding.schoolTime13
         };
 
-        binding.busTime.setText(now);
+        sch_length = schoolArr.length;
+        ter_length = termArr.length;
 
-        binding.tabHost.setup();
-        binding.tabHost.addTab(binding.tabHost.newTabSpec("Tab Spec 1").setIndicator("덕성여객").setContent(binding.tab1.getId()));
-        binding.tabHost.addTab(binding.tabHost.newTabSpec("Tab Spec 2").setIndicator("학교버스").setContent(binding.tab2.getId()));
+        for(int i=0; i<sch_length; i++)
+            schoolArr[i].setText(getBusTime.schoolTime[i]);
+        for(int j=0; j<ter_length; j++)
+            termArr[j].setText(getBusTime.termTime[j]);
 
-        binding.termToSchool.setText("터미널 -> 학교");
-        binding.schoolToTerm.setText("학교 -> 터미널");
+        now = commonUtil.getCurTime("HH") + ":" + commonUtil.getCurTime("mm");
 
-        for(int i=0; i<termArrLength; i++) {
-            termArr[i].setText(termTime[i]);
-            schoolArr[i].setText(schoolTime[i]);
-        }
+        schoolArr[getBusTime.getCurrentSTT(now)].setTextColor(getResources().getColor(R.color.colorRed));
+        termArr[getBusTime.getCurrentTTS(now)].setTextColor(getResources().getColor(R.color.colorRed));
 
-        getCurrentTTS(now);
-        getCurrentSTT(now);
+        binding.gguBus.setOnClickListener(v1 -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ggu.ac.kr/sub050501"));
+            startActivity(intent);
+        });
+        binding.schToTer.setOnClickListener(v12 -> {
+            binding.schToTer.setTextColor(getResources().getColor(R.color.colorWhite));
+            binding.schToTer.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+            binding.terToSch.setTextColor(getResources().getColor(R.color.unPointColor));
+            binding.terToSch.setBackgroundColor(getResources().getColor(R.color.none));
+            binding.schoolList.setVisibility(View.VISIBLE);
+            binding.terminalList.setVisibility(View.GONE);
+        });
+        binding.terToSch.setOnClickListener(v13 -> {
+            binding.schToTer.setTextColor(getResources().getColor(R.color.unPointColor));
+            binding.schToTer.setBackgroundColor(getResources().getColor(R.color.none));
+            binding.terToSch.setTextColor(getResources().getColor(R.color.colorWhite));
+            binding.terToSch.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+            binding.schoolList.setVisibility(View.GONE);
+            binding.terminalList.setVisibility(View.VISIBLE);
+        });
 
         return v;
-    }
-
-    public String getCurrentTTS(String now) {
-        for(int i=0; i<termArrLength; i++) {
-            if(now.compareTo(termTime[i]) < 0){
-                termArr[i].setTextColor(Color.RED);
-                curTimeArr = i;
-                break;
-            }
-        }
-        return termTime[curTimeArr];
-    }
-
-    public String getCurrentSTT(String now) {
-        for(int i=0; i<schoolArrLength; i++) {
-            if(now.compareTo(schoolTime[i]) < 0){
-                schoolArr[i].setTextColor(Color.RED);
-                curTimeArr = i;
-                break;
-            }
-        }
-        return schoolTime[curTimeArr];
     }
 
 }

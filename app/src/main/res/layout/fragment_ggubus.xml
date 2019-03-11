@@ -9,368 +9,405 @@
         android:layout_height="match_parent">
 
         <!-- TODO: Update blank fragment layout -->
-        <TabHost
-            android:id="@+id/tabHost"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
                 android:orientation="vertical">
 
-                <TabWidget
-                    android:id="@android:id/tabs"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/bus_title"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"/>
 
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
+                <TextView
+                    android:id="@+id/ggu_bus"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="5dp"
+                    android:text="@string/bus_school_timetable"
+                    android:textSize="14dp"
+                    android:textColor="@color/unPointColor" />
 
-                    <LinearLayout
-                        android:id="@+id/tab1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="6">
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="4">
-
-                                <TextView
-                                    android:id="@+id/bus_time"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="8"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:background="@drawable/bg_line">
-
-                                <TextView
-                                    android:id="@+id/term_to_school"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1"
-                                    android:textSize="18dp"
-                                    android:textColor="@color/colorBlack"
-                                    android:textAlignment="center">
-
-                                </TextView>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="9">
-
-                                    <ScrollView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:orientation="vertical">
-
-                                            <TextView
-                                                android:id="@+id/term_time1"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time2"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time3"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time4"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time5"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time6"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time7"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time8"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time9"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time10"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time11"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time12"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/term_time13"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                        </LinearLayout>
-
-                                    </ScrollView>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:background="@drawable/bg_line">
-
-                                <TextView
-                                    android:id="@+id/school_to_term"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1"
-                                    android:textSize="18dp"
-                                    android:textColor="@color/colorBlack"
-                                    android:textAlignment="center">
-
-                                </TextView>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="9"
-                                    android:orientation="vertical">
-
-                                    <ScrollView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:orientation="vertical">
-
-                                            <TextView
-                                                android:id="@+id/school_time1"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time2"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time3"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time4"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time5"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time6"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time7"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time8"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time9"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time10"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time11"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time12"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                            <TextView
-                                                android:id="@+id/school_time13"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:textSize="24dp"
-                                                android:textColor="@color/colorBlack"
-                                                android:textAlignment="center"/>
-
-                                        </LinearLayout>
-
-                                    </ScrollView>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tab2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-
-                    </LinearLayout>
-                </FrameLayout>
             </LinearLayout>
-        </TabHost>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorSkyBlue">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/bus_duksung"
+                        android:textSize="18dp"
+                        android:textColor="@color/colorBlack"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:paddingRight="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/sch_to_ter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:background="@color/colorBlue"
+                            android:text="@string/bus_to_ter"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"/>
+
+                        <TextView
+                            android:id="@+id/ter_to_sch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/ter_to_bus"
+                            android:textSize="18dp"
+                            android:textColor="@color/unPointColor"
+                            android:textAlignment="center"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/unPointColor" />
+
+                    <ScrollView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/school_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="visible"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/school_time1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time9"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/school_time13"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/terminal_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="gone"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/term_time1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time9"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/term_time13"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </ScrollView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </FrameLayout>
 </layout>

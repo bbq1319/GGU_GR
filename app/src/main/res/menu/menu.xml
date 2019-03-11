@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/action_more"
         android:icon="@drawable/ic_menu_black_24dp"
         android:iconTint="@color/unPointColor"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:title="@string/nav_more" />
     <item
-        android:id="@+id/action_menu"
+        android:id="@+id/action_home"
         android:icon="@drawable/ic_home_black_24dp"
         android:iconTint="@color/unPointColor"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:title="@string/nav_home" />
     <item
-        android:id="@+id/action_delivery"
+        android:id="@+id/action_login"
         android:icon="@drawable/ic_person_black_24dp"
         android:iconTint="@color/unPointColor"
         app:showAsAction="ifRoom"

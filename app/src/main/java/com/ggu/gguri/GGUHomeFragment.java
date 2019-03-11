@@ -33,7 +33,7 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
     GetBusTime getBusTime = new GetBusTime();
     CommonUtil commonUtil = new CommonUtil();
 
-    Timer timer = new Timer();
+    Timer timer;
     TimerTask timerTask;
 
     String today, now;
@@ -90,13 +90,14 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
                 container.removeView((ImageView) object);
             }
         });
-        binding.mainBanner.setCurrentItem(0);
         timerTask = new TimerTask() {
             @Override
             public void run() {
                 binding.mainBanner.post(() -> binding.mainBanner.setCurrentItem((binding.mainBanner.getCurrentItem()+1)%banners.length));
             }
         };
+        binding.mainBanner.setCurrentItem(0);
+        timer = new Timer();
         timer.schedule(timerTask, 5000, 5000);
 
 
@@ -105,8 +106,8 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
 
         // 버스 시간표 세팅
         now = commonUtil.getCurTime("HH") + ":" + commonUtil.getCurTime("mm");
-        binding.mainBusTerminal.setText(getBusTime.getCurrentTTS(now));
-        binding.mainBusSchool.setText(getBusTime.getCurrentSTT(now));
+        binding.mainBusTerminal.setText(getBusTime.termTime[getBusTime.getCurrentTTS(now)]);
+        binding.mainBusSchool.setText(getBusTime.schoolTime[getBusTime.getCurrentSTT(now)]);
 
         return v;
     }
@@ -152,6 +153,13 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
             ft.commit();
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        System.out.println("task timer cancel");
+        timer.cancel();
     }
 
     @Override

@@ -165,9 +165,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:paddingLeft="20dp"
                         android:paddingTop="10dp"
-                        android:paddingRight="20dp"
                         android:paddingBottom="10dp"
                         android:weightSum="3">
 
@@ -175,8 +173,8 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -185,14 +183,16 @@
                                 android:paddingBottom="10dp"
                                 android:text="@string/menu_breakfast"
                                 android:textColor="@color/colorBlack"
-                                android:textSize="16dp" />
+                                android:textSize="16dp"
+                                android:textAlignment="center"/>
 
                             <TextView
                                 android:id="@+id/main_menu_breakfast"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="12dp"
-                                android:textColor="@color/colorBlack"/>
+                                android:textColor="@color/colorBlack"
+                                android:textAlignment="center"/>
 
                         </LinearLayout>
 
@@ -200,8 +200,8 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -210,14 +210,16 @@
                                 android:paddingBottom="10dp"
                                 android:text="@string/menu_lunch"
                                 android:textSize="16dp"
-                                android:textColor="@color/colorBlack"/>
+                                android:textColor="@color/colorBlack"
+                                android:textAlignment="center"/>
 
                             <TextView
                                 android:id="@+id/main_menu_lunch"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="12dp"
-                                android:textColor="@color/colorBlack"/>
+                                android:textColor="@color/colorBlack"
+                                android:textAlignment="center"/>
 
                         </LinearLayout>
 
@@ -225,8 +227,8 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -235,14 +237,16 @@
                                 android:paddingBottom="10dp"
                                 android:text="@string/menu_dinner"
                                 android:textSize="16dp"
-                                android:textColor="@color/colorBlack"/>
+                                android:textColor="@color/colorBlack"
+                                android:textAlignment="center"/>
 
                             <TextView
                                 android:id="@+id/main_menu_dinner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="12dp"
-                                android:textColor="@color/colorBlack"/>
+                                android:textColor="@color/colorBlack"
+                                android:textAlignment="center"/>
 
                         </LinearLayout>
 

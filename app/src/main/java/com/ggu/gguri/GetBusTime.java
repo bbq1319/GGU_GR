@@ -10,28 +10,22 @@ public class GetBusTime {
             "07:00", "08:20", "09:10", "10:25", "11:40", "12:55", "14:00",
             "15:00", "16:25", "18:00", "19:20", "20:20", "21:45"
     };
+
     int termArrLength = termTime.length;
     int schoolArrLength = schoolTime.length;
-    int curTimeArr;
 
-    public String getCurrentTTS(String now) {
-        for(int i=0; i<termArrLength; i++) {
-            if(now.compareTo(termTime[i]) < 0){
-                curTimeArr = i;
-                break;
-            }
-        }
-        return termTime[curTimeArr];
+    public int getCurrentTTS(String now) {
+        for(int i=0; i<termArrLength; i++)
+            if(now.compareTo(termTime[i]) < 0)
+                return i;
+        return termArrLength-1;
     }
 
-    public String getCurrentSTT(String now) {
-        for(int i=0; i<schoolArrLength; i++) {
-            if(now.compareTo(schoolTime[i]) < 0){
-                curTimeArr = i;
-                break;
-            }
-        }
-        return schoolTime[curTimeArr];
+    public int getCurrentSTT(String now) {
+        for(int i=0; i<schoolArrLength; i++)
+            if(now.compareTo(schoolTime[i]) < 0)
+                return i;
+        return schoolArrLength-1;
     }
 
 }

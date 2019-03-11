@@ -107,10 +107,16 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
         }
 
         // 금주의 식단 세팅
+        String breakfastList = map.get("menu_breakfast_0").toString().replaceAll("\\s", "\n");
+        String lunchList = map.get("menu_lunch_0").toString().replaceAll("\\s", "\n");
+        String dinnerList = map.get("menu_dinner_0").toString().replaceAll("\\s", "\n");
+        System.out.println("week food list");
+        System.out.println(breakfastList);
+
         commonUtil.setText(getActivity(), binding.mainMenuDayBottom, map.get("menu_map_day_0").toString());
-        commonUtil.setText(getActivity(), binding.mainMenuBreakfast, map.get("menu_breakfast_0").toString());
-        commonUtil.setText(getActivity(), binding.mainMenuLunch, map.get("menu_lunch_0").toString());
-        commonUtil.setText(getActivity(), binding.mainMenuDinner, map.get("menu_dinner_0").toString());
+        commonUtil.setText(getActivity(), binding.mainMenuBreakfast, breakfastList);
+        commonUtil.setText(getActivity(), binding.mainMenuLunch, lunchList);
+        commonUtil.setText(getActivity(), binding.mainMenuDinner, dinnerList);
 
         // Viewpager 세팅
 //        binding.mainMenuBreakfast.setAdapter(new PagerAdapter() {

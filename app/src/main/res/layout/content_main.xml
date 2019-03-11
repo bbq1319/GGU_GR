@@ -24,7 +24,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         app:itemBackground="@color/colorWhite"
-        app:itemTextColor="@color/unPointColor"
+        app:itemIconTint="@color/bottom_selection_color"
+        app:itemTextColor="@color/bottom_selection_color"
         app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
         app:menu="@menu/menu" />
 

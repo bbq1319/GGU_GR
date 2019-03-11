@@ -11,10 +11,11 @@
     <color name="homeBackgroud">#EFEFEF</color>
     <color name="colorBoundary">#E8E8E8</color>
     <color name="colorBlue">#126DFF</color>
+    <color name="colorRed">#FF0000</color>
 
     <color name="colorSky">#7FBEFB</color>
     <color name="colorSkyBlue">#F2F7FF</color>
     <color name="colorMain">#55B2DC</color>
 
-
+    <color name="none">#00000000</color>
 </resources>
