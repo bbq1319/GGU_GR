@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">GGUM</string>
+    <string name="empty"></string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -27,6 +28,7 @@
     <string name="nav_login">로그인</string>
 
     <!-- menu Text -->
+    <string name="menu">식단표</string>
     <string name="menu_top_title">오늘 뭐먹지?</string>
     <string name="menu_bottom_title">금주의 식단</string>
     <string name="menu_breakfast">조식</string>
@@ -34,10 +36,26 @@
     <string name="menu_dinner">석식</string>
 
     <!-- bus Text -->
+    <string name="bus">버스시간표</string>
     <string name="bus_title">쉽게 확인하고\n버스 놓치지 말자!</string>
     <string name="bus_school_timetable">학교버스 시간표 바로가기 ></string>
     <string name="bus_duksung">덕성여객 시간표</string>
     <string name="ter_to_bus">터미널 > 학교</string>
     <string name="bus_to_ter">학교 > 터미널</string>
+
+    <!-- delivery -->
+    <string name="delivery">꾸르맛집</string>
+
+    <!-- more -->
+    <string name="more">더보기</string>
+
+    <!-- login -->
+    <string name="login">로그인</string>
+    <string name="login_id">ID</string>
+    <string name="login_pw">PW</string>
+    <string name="login_state">로그인 상태 유지</string>
+    <string name="login_find_id">아이디 찾기</string>
+    <string name="login_find_pw">비밀번호 찾기</string>
+    <string name="regist">회원가입</string>
 
 </resources>

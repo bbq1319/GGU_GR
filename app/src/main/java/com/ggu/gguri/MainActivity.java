@@ -1,7 +1,5 @@
 package com.ggu.gguri;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,14 +9,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
-import static com.ggu.gguri.R.id.bottom_navigation;
 import static com.ggu.gguri.R.id.frame;
 
 public class MainActivity extends AppCompatActivity
@@ -28,11 +27,15 @@ public class MainActivity extends AppCompatActivity
     private MenuItem prevBottomNavigation;
     BottomNavigationView bottomNavigationView;
     Fragment fragment = null;
+    static TextView titleBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // title bar
+        titleBar = findViewById(R.id.title_bar);
+        setActionBarTitle(getResources().getString(R.string.app_name));
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -50,20 +53,25 @@ public class MainActivity extends AppCompatActivity
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId()) {
                 case R.id.action_more:
-                    return true;
+                    fragment = new GGUSideMenuFragment();
+                    break;
                 case R.id.action_home:
                     fragment = new GGUHomeFragment();
                     break;
                 case R.id.action_login:
-                    fragment = new GGUMenuFragment();
+                    fragment = new GGULoginFragment();
                     break;
             }
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(frame, fragment);
+            ft.addToBackStack(null);
             ft.commit();
             return true;
         });
 
+        bottomNavigationView.setSelectedItemId(R.id.action_home);
+
+        // push Test
         FirebaseInstanceId.getInstance().getToken();
 
         if (FirebaseInstanceId.getInstance().getToken() != null) {
@@ -78,9 +86,10 @@ public class MainActivity extends AppCompatActivity
         ft.commit();
     }
 
+    // 뒤로가기 이벤트
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -88,6 +97,8 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    // 오른쪽 상단 설정
+    // 현재 미사용
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -108,6 +119,11 @@ public class MainActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // action bar 바꾸기
+    public void setActionBarTitle(String title){
+        titleBar.setText(title);
     }
 
 //    @SuppressWarnings("StatementWithEmptyBody")

@@ -3,7 +3,6 @@ package com.ggu.gguri;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,9 +13,6 @@ import android.widget.TextView;
 
 import com.ggu.gguri.databinding.FragmentGgubusBinding;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +21,7 @@ public class GGUBusFragment extends Fragment {
 
     GetBusTime getBusTime = new GetBusTime();
     CommonUtil commonUtil = new CommonUtil();
+    MainActivity mainActivity = new MainActivity();
 
     String now = "";
     int ter_length, sch_length;
@@ -43,6 +40,8 @@ public class GGUBusFragment extends Fragment {
         // Inflate the layout for this fragment
         FragmentGgubusBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggubus, container, false);
         View v = binding.getRoot();
+
+        mainActivity.setActionBarTitle(getResources().getString(R.string.bus));
 
         termArr = new TextView[]{
                 binding.termTime1, binding.termTime2, binding.termTime3, binding.termTime4,

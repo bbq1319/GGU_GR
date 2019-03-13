@@ -25,6 +25,7 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
 
     GetMenuList getMenuList = new GetMenuList();
     CommonUtil commonUtil = new CommonUtil();
+    MainActivity mainActivity = new MainActivity();
 
     LinearLayout timeTable, menuTable;
     TextView time, menu;
@@ -41,6 +42,8 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggumenu, container, false);
         View v = binding.getRoot();
+
+        mainActivity.setActionBarTitle(getResources().getString(R.string.menu));
 
         // onClick 세팅
         binding.menuBreakfast.setOnClickListener(this);
