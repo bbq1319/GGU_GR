@@ -32,6 +32,7 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
     GetMenuList getMenuList = new GetMenuList();
     GetBusTime getBusTime = new GetBusTime();
     CommonUtil commonUtil = new CommonUtil();
+    MainActivity mainActivity = new MainActivity();
 
     Timer timer;
     TimerTask timerTask;
@@ -54,6 +55,8 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gguhome, container, false);
         View v = binding.getRoot();
+
+        mainActivity.setActionBarTitle(getResources().getString(R.string.app_name), getResources().getColor(R.color.colorMain), 28);
 
         // onClick 세팅
         binding.mainGoMenu.setOnClickListener(this);

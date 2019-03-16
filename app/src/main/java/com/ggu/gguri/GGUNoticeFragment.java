@@ -26,6 +26,7 @@ public class GGUNoticeFragment extends Fragment {
     FragmentGgunoticeBinding binding;
     ProgressDialog asyncDialog;
     private ProgressBar progressBar;
+    static String URL = "https://www.ggu.ac.kr/sub01080101";
 
     public GGUNoticeFragment() {
         // Required empty public constructor
@@ -42,7 +43,7 @@ public class GGUNoticeFragment extends Fragment {
         WebSettings settings = binding.webview.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setSupportZoom(true);
-        binding.webview.loadUrl("https://www.ggu.ac.kr/sub01080101");
+        binding.webview.loadUrl(URL);
         binding.webview.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {

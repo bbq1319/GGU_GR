@@ -41,7 +41,7 @@ public class GGUBusFragment extends Fragment {
         FragmentGgubusBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggubus, container, false);
         View v = binding.getRoot();
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.bus));
+        mainActivity.setActionBarTitle(getResources().getString(R.string.bus), getResources().getColor(R.color.colorBlack), 24);
 
         termArr = new TextView[]{
                 binding.termTime1, binding.termTime2, binding.termTime3, binding.termTime4,

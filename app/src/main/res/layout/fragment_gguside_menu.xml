@@ -109,6 +109,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/side_school"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -117,6 +118,7 @@
                         android:src="@drawable/side_school"/>
 
                     <ImageView
+                        android:id="@+id/side_department"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -125,6 +127,7 @@
                         android:src="@drawable/side_department"/>
 
                     <ImageView
+                        android:id="@+id/side_notice"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -133,6 +136,7 @@
                         android:src="@drawable/side_notice"/>
 
                     <ImageView
+                        android:id="@+id/side_free"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -141,6 +145,7 @@
                         android:src="@drawable/side_free"/>
 
                     <ImageView
+                        android:id="@+id/side_anonymous"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -149,6 +154,7 @@
                         android:src="@drawable/side_anonymous"/>
 
                     <ImageView
+                        android:id="@+id/side_cast"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -157,6 +163,7 @@
                         android:src="@drawable/side_cast"/>
 
                     <ImageView
+                        android:id="@+id/side_delivery"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -165,6 +172,7 @@
                         android:src="@drawable/side_delivery"/>
 
                     <ImageView
+                        android:id="@+id/side_menu"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"
@@ -173,6 +181,7 @@
                         android:src="@drawable/side_menu"/>
 
                     <ImageView
+                        android:id="@+id/side_bus"
                         android:layout_height="60dp"
                         android:layout_width="60dp"
                         android:layout_columnWeight="1"

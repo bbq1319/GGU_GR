@@ -43,7 +43,7 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggumenu, container, false);
         View v = binding.getRoot();
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.menu));
+        mainActivity.setActionBarTitle(getResources().getString(R.string.menu), getResources().getColor(R.color.colorBlack), 24);
 
         // onClick 세팅
         binding.menuBreakfast.setOnClickListener(this);

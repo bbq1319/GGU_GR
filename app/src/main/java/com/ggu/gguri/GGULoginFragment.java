@@ -30,7 +30,7 @@ public class GGULoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.empty));
+        mainActivity.setActionBarTitle(getResources().getString(R.string.empty), getResources().getColor(R.color.none), 0);
 
         return inflater.inflate(R.layout.fragment_ggulogin, container, false);
     }

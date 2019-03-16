@@ -5,11 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         // title bar
         titleBar = findViewById(R.id.title_bar);
-        setActionBarTitle(getResources().getString(R.string.app_name));
+        setActionBarTitle(getResources().getString(R.string.app_name), getResources().getColor(R.color.colorMain), 28);
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -78,10 +78,17 @@ public class MainActivity extends AppCompatActivity
             Log.d(TAG, "token = " + FirebaseInstanceId.getInstance().getToken());
         }
 
+        FragmentManager manager = getSupportFragmentManager();
+        if(manager.getBackStackEntryCount() > 3) {
+            System.out.println(manager.getBackStackEntryCount());
+        }
+        for(int entry = 0; entry < manager.getBackStackEntryCount(); entry++){
+            Log.i(TAG, "Found fragment: " + manager.getBackStackEntryAt(entry).getId());
+        }
+
         // 첫 화면 setting
         GGUHomeFragment fragment = new GGUHomeFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.setCustomAnimations(R.anim.delta_in, R.anim.delta_out);
         ft.replace(frame, fragment);
         ft.commit();
     }
@@ -122,8 +129,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     // action bar 바꾸기
-    public void setActionBarTitle(String title){
+    public void setActionBarTitle(String title, int color, int size){
         titleBar.setText(title);
+        titleBar.setTextColor(color);
+        titleBar.setTextSize(size);
     }
 
 //    @SuppressWarnings("StatementWithEmptyBody")
