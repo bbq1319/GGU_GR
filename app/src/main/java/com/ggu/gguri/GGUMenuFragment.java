@@ -1,7 +1,9 @@
 package com.ggu.gguri;
 
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,18 +21,22 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GGUMenuFragment extends Fragment implements View.OnClickListener{
+public class GGUMenuFragment extends Fragment{
 
     FragmentGgumenuBinding binding;
-
     GetMenuList getMenuList = new GetMenuList();
     CommonUtil commonUtil = new CommonUtil();
     MainActivity mainActivity = new MainActivity();
 
     LinearLayout timeTable, menuTable;
     TextView time, menu;
-    String today;
-    int mealLength;
+    String today, breakfastList, lunchList, dinnerList;
+    String menu_map_day = "menu_map_day_";
+    String menu_breakfast = "menu_breakfast_";
+    String menu_lunch = "menu_lunch_";
+    String menu_dinner = "menu_dinner_";
+    Map result;
+    int mealLength, curMenuPage;
 
     public GGUMenuFragment() {
         // Required empty public constructor
@@ -46,12 +52,14 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
         mainActivity.setActionBarTitle(getResources().getString(R.string.menu), getResources().getColor(R.color.colorBlack), 24);
 
         // onClick 세팅
-        binding.menuBreakfast.setOnClickListener(this);
-        binding.menuLunch.setOnClickListener(this);
-        binding.menuDinner.setOnClickListener(this);
+        binding.menuBreakfast.setOnClickListener(this::todayButtonClick);
+        binding.menuLunch.setOnClickListener(this::todayButtonClick);
+        binding.menuDinner.setOnClickListener(this::todayButtonClick);
 
-        binding.mainMenuDayPrev.setOnClickListener(this);
-        binding.mainMenuDayNext.setOnClickListener(this);
+        binding.mainMenuDayPrev.setOnClickListener(this::weekButtonClick);
+        binding.mainMenuDayNext.setOnClickListener(this::weekButtonClick);
+
+        binding.gguMenu.setOnClickListener(this::goGGUMenu);
 
         // TextView 세팅
         getMenuList.doInBackground(getActivity(), map -> {
@@ -63,6 +71,8 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
     }
 
     public void onPostExecute(Map map) {
+        result = map;
+        curMenuPage = 0;
         String getCurMealTime = getMenuList.getCurMealTime(getActivity());
         String breakfast = getActivity().getResources().getString(R.string.menu_breakfast);
         String lunch = getActivity().getResources().getString(R.string.menu_lunch);
@@ -110,9 +120,9 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
         }
 
         // 금주의 식단 세팅
-        String breakfastList = map.get("menu_breakfast_0").toString().replaceAll("\\s", "\n");
-        String lunchList = map.get("menu_lunch_0").toString().replaceAll("\\s", "\n");
-        String dinnerList = map.get("menu_dinner_0").toString().replaceAll("\\s", "\n");
+        breakfastList = map.get(menu_breakfast + curMenuPage).toString().replaceAll("\\s", "\n");
+        lunchList = map.get(menu_lunch + curMenuPage).toString().replaceAll("\\s", "\n");
+        dinnerList = map.get(menu_dinner + curMenuPage).toString().replaceAll("\\s", "\n");
         System.out.println("week food list");
         System.out.println(breakfastList);
 
@@ -154,12 +164,10 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
 //        binding.mainBanner.setCurrentItem(0);
     }
 
-    @Override
-    public void onClick(View v) {
-        // 상단 조식, 중식, 석식 클릭시 이벤트
-        // 추후 모듈화
-        timeTable = getActivity().findViewById(R.id.menu_timetable);
-        menuTable = getActivity().findViewById(R.id.menu_table);
+    // 상단 조식, 중식, 석식 클릭시 이벤트
+    public void todayButtonClick(View v) {
+        timeTable = binding.menuTimetable;
+        menuTable = binding.menuTable;
         mealLength = timeTable.getChildCount();
 
         for(int i=0; i<mealLength; i++) {
@@ -174,8 +182,38 @@ public class GGUMenuFragment extends Fragment implements View.OnClickListener{
                 menu.setVisibility(View.GONE);
             }
         }
+    }
 
-        // 금주의 식단 클릭 이벤트
+    // 금주의 식단 클릭 이벤트
+    public void weekButtonClick(View v) {
+        if(v.getId() == binding.mainMenuDayPrev.getId() && curMenuPage > 0) {
+            curMenuPage--;
+            breakfastList = result.get(menu_breakfast + curMenuPage).toString().replaceAll("\\s", "\n");
+            lunchList = result.get(menu_lunch + curMenuPage).toString().replaceAll("\\s", "\n");
+            dinnerList = result.get(menu_dinner + curMenuPage).toString().replaceAll("\\s", "\n");
+
+            commonUtil.setText(getActivity(), binding.mainMenuDayBottom, result.get(menu_map_day + curMenuPage).toString());
+            commonUtil.setText(getActivity(), binding.mainMenuBreakfast, breakfastList);
+            commonUtil.setText(getActivity(), binding.mainMenuLunch, lunchList);
+            commonUtil.setText(getActivity(), binding.mainMenuDinner, dinnerList);
+        }
+
+        if(v.getId() == binding.mainMenuDayNext.getId() && curMenuPage < Integer.parseInt(result.get("par_day_length").toString()) - 2) {
+            curMenuPage++;
+            breakfastList = result.get(menu_breakfast + curMenuPage).toString().replaceAll("\\s", "\n");
+            lunchList = result.get(menu_lunch + curMenuPage).toString().replaceAll("\\s", "\n");
+            dinnerList = result.get(menu_dinner + curMenuPage).toString().replaceAll("\\s", "\n");
+
+            commonUtil.setText(getActivity(), binding.mainMenuDayBottom, result.get(menu_map_day + curMenuPage).toString());
+            commonUtil.setText(getActivity(), binding.mainMenuBreakfast, breakfastList);
+            commonUtil.setText(getActivity(), binding.mainMenuLunch, lunchList);
+            commonUtil.setText(getActivity(), binding.mainMenuDinner, dinnerList);
+        }
+    }
+
+    public void goGGUMenu(View v) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ggu.ac.kr/sub0504"));
+        startActivity(intent);
     }
 
 }

@@ -6,7 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -18,21 +18,20 @@ import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
-import static com.ggu.gguri.R.id.frame;
-
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private MenuItem prevBottomNavigation;
-    BottomNavigationView bottomNavigationView;
     Fragment fragment = null;
     static TextView titleBar;
+
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // title bar
         titleBar = findViewById(R.id.title_bar);
         setActionBarTitle(getResources().getString(R.string.app_name), getResources().getColor(R.color.colorMain), 28);
@@ -49,23 +48,34 @@ public class MainActivity extends AppCompatActivity
 //        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 //        navigationView.setNavigationItemSelectedListener(this);
 
+        // ViewPager Test
+        viewPager = findViewById(R.id.viewpager);
+        viewPager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+        viewPager.setCurrentItem(1);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId()) {
                 case R.id.action_more:
-                    fragment = new GGUSideMenuFragment();
+                    viewPager.setCurrentItem(0);
+                    // fragment = new GGUSideMenuFragment();
                     break;
                 case R.id.action_home:
-                    fragment = new GGUHomeFragment();
+                    viewPager.setCurrentItem(1);
+                    //fragment = new GGUHomeFragment();
                     break;
                 case R.id.action_login:
-                    fragment = new GGULoginFragment();
+                    viewPager.setCurrentItem(2);
+                    // fragment = new GGULoginFragment();
                     break;
             }
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(frame, fragment);
-            ft.addToBackStack(null);
-            ft.commit();
+//            String fragmentTag = fragment.getClass().getSimpleName();
+//            getSupportFragmentManager().popBackStack(fragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            ft.replace(frame, fragment);
+//            ft.addToBackStack(fragmentTag);
+//            ft.commit();
             return true;
         });
 
@@ -87,10 +97,10 @@ public class MainActivity extends AppCompatActivity
         }
 
         // 첫 화면 setting
-        GGUHomeFragment fragment = new GGUHomeFragment();
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(frame, fragment);
-        ft.commit();
+//        GGUHomeFragment fragment = new GGUHomeFragment();
+//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//        ft.replace(frame, fragment);
+//        ft.commit();
     }
 
     // 뒤로가기 이벤트
@@ -135,7 +145,38 @@ public class MainActivity extends AppCompatActivity
         titleBar.setTextSize(size);
     }
 
-//    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
+    }
+
+    private class pagerAdapter extends FragmentStatePagerAdapter {
+
+        public pagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int i) {
+            switch (i) {
+                case 0:
+                    return new GGUSideMenuFragment();
+                case 1:
+                    return new GGUHomeFragment();
+                case 2:
+                    return new GGULoginFragment();
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+    }
+
+    //    @SuppressWarnings("StatementWithEmptyBody")
 //    @Override
 //    public boolean onNavigationItemSelected(MenuItem item) {
 //        // Handle navigation view item clicks here.
@@ -163,28 +204,4 @@ public class MainActivity extends AppCompatActivity
 //        return true;
 //    }
 
-
-    @Override
-    public void onPageSelected(int position) {
-        if(prevBottomNavigation != null) {
-            prevBottomNavigation.setChecked(false);
-        }
-        prevBottomNavigation = bottomNavigationView.getMenu().getItem(position);
-        prevBottomNavigation.setChecked(true);
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int i) {
-
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
-    }
-
-    @Override
-    public void onPageScrolled(int i, float v, int i1) {
-
-    }
 }

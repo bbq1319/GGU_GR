@@ -31,6 +31,7 @@
     <string name="menu">식단표</string>
     <string name="menu_top_title">오늘 뭐먹지?</string>
     <string name="menu_bottom_title">금주의 식단</string>
+    <string name="menu_timetable">학교 식단표 바로가기 ></string>
     <string name="menu_breakfast">조식</string>
     <string name="menu_lunch">중식</string>
     <string name="menu_dinner">석식</string>
@@ -57,5 +58,8 @@
     <string name="login_find_id">아이디 찾기</string>
     <string name="login_find_pw">비밀번호 찾기</string>
     <string name="regist">회원가입</string>
+    <string name="empty_idpw">아이디나 패스워드는 빈칸일 수 없습니다.</string>
+    <string name="wrong_idpw">아이디나 패스워드가 올바르지 않습니다.</string>
+    <string name="login_err">연결 중 오류가 발생했습니다. 잠시 후 시도해주세요.</string>
 
 </resources>

@@ -5,11 +5,14 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ggu.gguri.databinding.FragmentGgusideMenuBinding;
+import com.ggu.gguri.pojo.GetMember;
+import com.ggu.gguri.pojo.LoginInfo;
 
 import static com.ggu.gguri.R.id.frame;
 
@@ -21,10 +24,11 @@ public class GGUSideMenuFragment extends Fragment implements View.OnClickListene
 
     FragmentGgusideMenuBinding binding;
     GGUNoticeFragment gguNoticeFragment = new GGUNoticeFragment();
+    GGULoginFragment gguLoginFragment = new GGULoginFragment();
     MainActivity mainActivity = new MainActivity();
 
     Fragment fragment = null;
-    String URL;
+    String URL, name, stuno, major, major2;
 
     public GGUSideMenuFragment() {
         // Required empty public constructor
@@ -49,6 +53,36 @@ public class GGUSideMenuFragment extends Fragment implements View.OnClickListene
         binding.sideDelivery.setOnClickListener(this);
         binding.sideMenu.setOnClickListener(this);
         binding.sideBus.setOnClickListener(this);
+
+//        info = LoginInfo.getInstance();
+//        System.out.println(info.getSex());
+//        GetMember memberResponse = new GetMember();
+//        System.out.println(memberResponse);
+//        if(memberResponse.getData() != null) {
+//            System.out.println(memberResponse.getData());
+//            if(memberResponse.getData().getLoginInfo() != null) {
+//                System.out.println(memberResponse.getData().getLoginInfo());
+//
+//            }
+//        }
+
+        // 로그인 시, 유저 정보 세팅
+        if(gguLoginFragment.memberInfo == null) {
+            System.out.println("null 입니다.");
+        } else {
+            name = gguLoginFragment.memberInfo.get("name").toString();
+            stuno = gguLoginFragment.memberInfo.get("stuno").toString();
+            major = gguLoginFragment.memberInfo.get("major").toString();
+
+            binding.memberName.setText(name);
+            binding.memberStuno.setText(stuno);
+            if(TextUtils.isEmpty(major)){
+                major2 = gguLoginFragment.memberInfo.get("major2").toString();
+                binding.memberMajor.setText(major + "/" + major2);
+            }
+            else
+                binding.memberMajor.setText(major);
+        }
 
         return v;
     }
