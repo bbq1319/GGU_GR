@@ -7,6 +7,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -18,14 +19,13 @@ import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import static com.ggu.gguri.R.id.frame;
+
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     Fragment fragment = null;
     static TextView titleBar;
-
-    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,37 +49,43 @@ public class MainActivity extends AppCompatActivity
 //        navigationView.setNavigationItemSelectedListener(this);
 
         // ViewPager Test
-        viewPager = findViewById(R.id.viewpager);
-        viewPager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
-        viewPager.setCurrentItem(1);
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()) {
-                case R.id.action_more:
-                    viewPager.setCurrentItem(0);
-                    // fragment = new GGUSideMenuFragment();
-                    break;
-                case R.id.action_home:
-                    viewPager.setCurrentItem(1);
-                    //fragment = new GGUHomeFragment();
-                    break;
-                case R.id.action_login:
-                    viewPager.setCurrentItem(2);
-                    // fragment = new GGULoginFragment();
-                    break;
-            }
-//            String fragmentTag = fragment.getClass().getSimpleName();
-//            getSupportFragmentManager().popBackStack(fragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//        viewPager = findViewById(R.id.viewpager);
+//        viewPager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+//        viewPager.setCurrentItem(1);
 //
-//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            ft.replace(frame, fragment);
-//            ft.addToBackStack(fragmentTag);
-//            ft.commit();
-            return true;
-        });
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+//            switch (menuItem.getItemId()) {
+//                case R.id.action_more:
+//                    viewPager.setCurrentItem(0);
+//                    // fragment = new GGUSideMenuFragment();
+//                    break;
+//                case R.id.action_home:
+//                    viewPager.setCurrentItem(1);
+//                    //fragment = new GGUHomeFragment();
+//                    break;
+//                case R.id.action_login:
+//                    viewPager.setCurrentItem(2);
+//                    // fragment = new GGULoginFragment();
+//                    break;
+//            }
+////            String fragmentTag = fragment.getClass().getSimpleName();
+////            getSupportFragmentManager().popBackStack(fragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+////
+////            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+////            ft.replace(frame, fragment);
+////            ft.addToBackStack(fragmentTag);
+////            ft.commit();
+//            return true;
+//        });
+//
+//        bottomNavigationView.setSelectedItemId(R.id.action_home);
 
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+        GGUMainFragment fragment = new GGUMainFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//        ft.setCustomAnimations(R.anim.delta_in, R.anim.delta_out);
+        ft.replace(frame, fragment);
+        ft.commit();
 
         // push Test
         FirebaseInstanceId.getInstance().getToken();
@@ -145,36 +151,36 @@ public class MainActivity extends AppCompatActivity
         titleBar.setTextSize(size);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
-    }
-
-    private class pagerAdapter extends FragmentStatePagerAdapter {
-
-        public pagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-            switch (i) {
-                case 0:
-                    return new GGUSideMenuFragment();
-                case 1:
-                    return new GGUHomeFragment();
-                case 2:
-                    return new GGULoginFragment();
-                default:
-                    return null;
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-    }
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//        return false;
+//    }
+//
+//    private class pagerAdapter extends FragmentStatePagerAdapter {
+//
+//        public pagerAdapter(FragmentManager fm) {
+//            super(fm);
+//        }
+//
+//        @Override
+//        public Fragment getItem(int i) {
+//            switch (i) {
+//                case 0:
+//                    return new GGUSideMenuFragment();
+//                case 1:
+//                    return new GGUHomeFragment();
+//                case 2:
+//                    return new GGULoginFragment();
+//                default:
+//                    return null;
+//            }
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return 3;
+//        }
+//    }
 
     //    @SuppressWarnings("StatementWithEmptyBody")
 //    @Override
