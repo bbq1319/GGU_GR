@@ -4,6 +4,7 @@ package com.ggu.gguri;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -11,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ggu.gguri.databinding.FragmentGgusideMenuBinding;
-import com.ggu.gguri.pojo.GetMember;
-import com.ggu.gguri.pojo.LoginInfo;
 
 import static com.ggu.gguri.R.id.frame;
 
@@ -42,7 +41,7 @@ public class GGUSideMenuFragment extends Fragment implements View.OnClickListene
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gguside_menu, container, false);
         View v = binding.getRoot();
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.more), getResources().getColor(R.color.colorBlack), 24);
+//        mainActivity.setActionBarTitle(getResources().getString(R.string.more), getResources().getColor(R.color.colorBlack), 24);
 
         binding.sideSchool.setOnClickListener(this);
         binding.sideDepartment.setOnClickListener(this);
@@ -53,18 +52,6 @@ public class GGUSideMenuFragment extends Fragment implements View.OnClickListene
         binding.sideDelivery.setOnClickListener(this);
         binding.sideMenu.setOnClickListener(this);
         binding.sideBus.setOnClickListener(this);
-
-//        info = LoginInfo.getInstance();
-//        System.out.println(info.getSex());
-//        GetMember memberResponse = new GetMember();
-//        System.out.println(memberResponse);
-//        if(memberResponse.getData() != null) {
-//            System.out.println(memberResponse.getData());
-//            if(memberResponse.getData().getLoginInfo() != null) {
-//                System.out.println(memberResponse.getData().getLoginInfo());
-//
-//            }
-//        }
 
         // 로그인 시, 유저 정보 세팅
         if(gguLoginFragment.memberInfo == null) {
@@ -112,12 +99,17 @@ public class GGUSideMenuFragment extends Fragment implements View.OnClickListene
         }
 
         if (fragment != null) {
+            String fragmentTag = fragment.getClass().getSimpleName();
+            getFragmentManager().popBackStack(fragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
             ft.replace(frame, fragment);
-            ft.addToBackStack(null);
+            ft.addToBackStack(fragmentTag);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
             ft.commit();
+
+            mainActivity.viewPager.setCurrentItem(1);
         }
     }
 }

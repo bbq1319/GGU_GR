@@ -26,7 +26,6 @@ public class GGUMenuFragment extends Fragment{
     FragmentGgumenuBinding binding;
     GetMenuList getMenuList = new GetMenuList();
     CommonUtil commonUtil = new CommonUtil();
-    MainActivity mainActivity = new MainActivity();
 
     LinearLayout timeTable, menuTable;
     TextView time, menu;
@@ -49,7 +48,7 @@ public class GGUMenuFragment extends Fragment{
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggumenu, container, false);
         View v = binding.getRoot();
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.menu), getResources().getColor(R.color.colorBlack), 24);
+//        mainActivity.setActionBarTitle(getResources().getString(R.string.menu), getResources().getColor(R.color.colorBlack), 24);
 
         // onClick 세팅
         binding.menuBreakfast.setOnClickListener(this::todayButtonClick);
@@ -130,38 +129,6 @@ public class GGUMenuFragment extends Fragment{
         commonUtil.setText(getActivity(), binding.mainMenuBreakfast, breakfastList);
         commonUtil.setText(getActivity(), binding.mainMenuLunch, lunchList);
         commonUtil.setText(getActivity(), binding.mainMenuDinner, dinnerList);
-
-        // Viewpager 세팅
-//        binding.mainMenuBreakfast.setAdapter(new PagerAdapter() {
-//
-//            @Override
-//            public int getCount() {
-//                return banners.length;
-//            }
-//
-//            @Override
-//            public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-//                return view == o;
-//            }
-//
-//            @Override
-//            public Object instantiateItem(ViewGroup container, int position) {
-//                ImageView imageView = new ImageView(getActivity());
-//
-//                banner = BitmapFactory.decodeResource(getActivity().getResources(), banners[position]);
-//
-//                imageView.setImageBitmap(banner);
-//                container.addView(imageView, 0);
-//                return imageView;
-//            }
-//
-//            @Override
-//            public void destroyItem(ViewGroup container, int position, Object object) {
-//                container.removeView((ImageView) object);
-//            }
-//
-//        });
-//        binding.mainBanner.setCurrentItem(0);
     }
 
     // 상단 조식, 중식, 석식 클릭시 이벤트

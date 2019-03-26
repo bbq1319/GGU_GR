@@ -21,7 +21,6 @@ public class GGUBusFragment extends Fragment {
 
     GetBusTime getBusTime = new GetBusTime();
     CommonUtil commonUtil = new CommonUtil();
-    MainActivity mainActivity = new MainActivity();
 
     String now = "";
     int ter_length, sch_length;
@@ -40,8 +39,10 @@ public class GGUBusFragment extends Fragment {
         // Inflate the layout for this fragment
         FragmentGgubusBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggubus, container, false);
         View v = binding.getRoot();
+        System.out.println("Bus onCreateView");
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.bus), getResources().getColor(R.color.colorBlack), 24);
+        getActivity().setTitle(getResources().getString(R.string.bus));
+        getActivity().setTitleColor(getResources().getColor(R.color.colorBlack));
 
         termArr = new TextView[]{
                 binding.termTime1, binding.termTime2, binding.termTime3, binding.termTime4,
@@ -91,6 +92,12 @@ public class GGUBusFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        System.out.println("Bus onDestroyView");
     }
 
 }

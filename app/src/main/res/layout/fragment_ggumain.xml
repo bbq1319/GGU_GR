@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".GGUMainFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="home" type="com.ggu.gguri.GGUMainFragment" />
+    </data>
 
     <!-- TODO: Update blank fragment layout -->
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    <FrameLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".GGUMainFragment">
 
-    </android.support.v4.view.ViewPager>
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
+        </FrameLayout>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:itemBackground="@color/colorWhite"
-        app:itemIconTint="@color/bottom_selection_color"
-        app:itemTextColor="@color/bottom_selection_color"
-        app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
-        app:menu="@menu/menu" />
+    </FrameLayout >
 
-</FrameLayout>
+</layout>

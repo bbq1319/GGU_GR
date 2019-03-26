@@ -4,382 +4,384 @@
         <variable name="home" type="com.ggu.gguri.GGUHomeFragment" />
     </data>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <!-- 배너 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:background="@color/colorSkyBlue">
-
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/main_banner"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                </android.support.v4.view.ViewPager>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/colorBoundary" />
-
-            <!-- 공지사항 -->
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="160dp"-->
-                <!--android:orientation="vertical"-->
-                <!--android:paddingLeft="20dp"-->
-                <!--android:paddingTop="20dp"-->
-                <!--android:paddingRight="20dp"-->
-                <!--android:paddingBottom="20dp">-->
-
-                <!--<LinearLayout-->
-                    <!--android:id="@+id/main_go_notice"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="0dp"-->
-                    <!--android:layout_weight="1">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="left"-->
-                        <!--android:text="@string/main_notice"-->
-                        <!--android:textSize="24dp"-->
-                        <!--android:textColor="@color/colorBlack"-->
-                        <!--android:textStyle="bold" />-->
-
-                    <!--<View-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="0dp"-->
-                        <!--android:layout_weight="1"/>-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="right"-->
-                        <!--android:text=">"-->
-                        <!--android:textSize="24dp"-->
-                        <!--android:textColor="@color/colorBlack"-->
-                        <!--android:textStyle="bold"/>-->
-
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="0dp"-->
-                    <!--android:layout_weight="3"-->
-                    <!--android:orientation="vertical"-->
-                    <!--android:paddingTop="15dp">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="left"-->
-                        <!--android:text="2019상반기 함민마런ㅇㄹ"-->
-                        <!--android:textSize="18dp"-->
-                        <!--android:textColor="@color/colorBlack"-->
-                        <!--android:textStyle="bold" />-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="[글로벌] 12312;ㅣ낭멀니ㅏㅇㅁ런ㅁ아ㅣ런ㅁ이ㅏ;러\nㅁㄴㅇㅁㄴㅇㄴㅇㄻㄴ아ㅣㄹ\nㅁㄴㅇㅁㄴㅇㄴㅇㄻㄴ아ㅣㄹ"-->
-                        <!--android:textSize="14dp"-->
-                        <!--android:textColor="@color/colorBlack"/>-->
-
-                <!--</LinearLayout>-->
-
-            <!--</LinearLayout>-->
-
-            <!--<View-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="5dp"-->
-                <!--android:background="@color/colorBoundary" />-->
-
-            <!-- 오늘의 학식 -->
+            <!-- TODO: Update blank fragment layout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingTop="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/main_go_menu"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="@string/main_menu"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-                        android:layout_gravity="center_vertical"/>
-
-                </LinearLayout>
-
+                <!-- 배너 -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="7"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp">
+                    android:layout_height="160dp"
+                    android:background="@color/colorSkyBlue">
 
-                    <TextView
-                        android:id="@+id/main_menu_day"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:textSize="18dp"
-                        android:textColor="@color/colorMain"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/main_banner"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:weightSum="3">
+                        android:layout_height="match_parent" >
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingBottom="10dp"
-                                android:text="@string/menu_breakfast"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="16dp"
-                                android:textAlignment="center"/>
-
-                            <TextView
-                                android:id="@+id/main_menu_breakfast"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="12dp"
-                                android:textColor="@color/colorBlack"
-                                android:textAlignment="center"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingBottom="10dp"
-                                android:text="@string/menu_lunch"
-                                android:textSize="16dp"
-                                android:textColor="@color/colorBlack"
-                                android:textAlignment="center"/>
-
-                            <TextView
-                                android:id="@+id/main_menu_lunch"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="12dp"
-                                android:textColor="@color/colorBlack"
-                                android:textAlignment="center"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingBottom="10dp"
-                                android:text="@string/menu_dinner"
-                                android:textSize="16dp"
-                                android:textColor="@color/colorBlack"
-                                android:textAlignment="center"/>
-
-                            <TextView
-                                android:id="@+id/main_menu_dinner"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="12dp"
-                                android:textColor="@color/colorBlack"
-                                android:textAlignment="center"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
+                    </android.support.v4.view.ViewPager>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/colorBoundary" />
-
-            <!-- 버스 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingTop="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp">
-
-                <LinearLayout
-                    android:id="@+id/main_go_bus"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_height="5dp"
+                    android:background="@color/colorBoundary" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="@string/main_bus"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />
+                <!-- 공지사항 -->
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="160dp"-->
+                <!--android:orientation="vertical"-->
+                <!--android:paddingLeft="20dp"-->
+                <!--android:paddingTop="20dp"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:paddingBottom="20dp">-->
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                <!--<LinearLayout-->
+                <!--android:id="@+id/main_go_notice"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1">-->
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-                        android:layout_gravity="center_vertical"/>
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="left"-->
+                <!--android:text="@string/main_notice"-->
+                <!--android:textSize="24dp"-->
+                <!--android:textColor="@color/colorBlack"-->
+                <!--android:textStyle="bold" />-->
 
-                </LinearLayout>
+                <!--<View-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"/>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp">
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:text=">"-->
+                <!--android:textSize="24dp"-->
+                <!--android:textColor="@color/colorBlack"-->
+                <!--android:textStyle="bold"/>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1">
+                <!--</LinearLayout>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:text="@string/ter_to_bus"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"/>
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="3"-->
+                <!--android:orientation="vertical"-->
+                <!--android:paddingTop="15dp">-->
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"/>
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="left"-->
+                <!--android:text="2019상반기 함민마런ㅇㄹ"-->
+                <!--android:textSize="18dp"-->
+                <!--android:textColor="@color/colorBlack"-->
+                <!--android:textStyle="bold" />-->
 
-                        <TextView
-                            android:id="@+id/main_bus_terminal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="20dp"
-                            android:layout_gravity="right"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"/>
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="[글로벌] 12312;ㅣ낭멀니ㅏㅇㅁ런ㅁ아ㅣ런ㅁ이ㅏ;러\nㅁㄴㅇㅁㄴㅇㄴㅇㄻㄴ아ㅣㄹ\nㅁㄴㅇㅁㄴㅇㄴㅇㄻㄴ아ㅣㄹ"-->
+                <!--android:textSize="14dp"-->
+                <!--android:textColor="@color/colorBlack"/>-->
 
-                    </LinearLayout>
+                <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1">
+                <!--</LinearLayout>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:text="@string/bus_to_ter"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"/>
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"/>
-
-                        <TextView
-                            android:id="@+id/main_bus_school"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="20dp"
-                            android:layout_gravity="right"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorBlack"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!--<View-->
+                <!--<View-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="5dp"-->
                 <!--android:background="@color/colorBoundary" />-->
 
-            <!--<LinearLayout-->
+                <!-- 오늘의 학식 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/main_go_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="@string/main_menu"
+                            android:textSize="20dp"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                            android:layout_gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="15dp">
+
+                        <TextView
+                            android:id="@+id/main_menu_day"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorMain"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="10dp"
+                                    android:text="@string/menu_breakfast"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="16dp"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/main_menu_breakfast"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="10dp"
+                                    android:text="@string/menu_lunch"
+                                    android:textSize="16dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/main_menu_lunch"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="10dp"
+                                    android:text="@string/menu_dinner"
+                                    android:textSize="16dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                                <TextView
+                                    android:id="@+id/main_menu_dinner"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/colorBlack"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/colorBoundary" />
+
+                <!-- 버스 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/main_go_bus"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="@string/main_bus"
+                            android:textSize="20dp"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                            android:layout_gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:orientation="vertical"
+                        android:paddingTop="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="@string/ter_to_bus"
+                                android:textSize="18dp"
+                                android:textColor="@color/colorBlack"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:id="@+id/main_bus_terminal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="20dp"
+                                android:layout_gravity="right"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:textSize="18dp"
+                                android:textColor="@color/colorBlack"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="@string/bus_to_ter"
+                                android:textSize="18dp"
+                                android:textColor="@color/colorBlack"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:id="@+id/main_bus_school"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="20dp"
+                                android:layout_gravity="right"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:textSize="18dp"
+                                android:textColor="@color/colorBlack"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="5dp"-->
+                <!--android:background="@color/colorBoundary" />-->
+
+                <!--<LinearLayout-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="160dp"-->
                 <!--android:orientation="vertical"-->
@@ -389,10 +391,14 @@
                 <!--android:paddingBottom="20dp">-->
 
 
-            <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </ScrollView>
+        </ScrollView>
+
+    </FrameLayout>
+
+
 
 </layout>

@@ -27,7 +27,6 @@ import retrofit2.Response;
 public class GGULoginFragment extends Fragment implements View.OnClickListener {
 
     FragmentGguloginBinding binding;
-    MainActivity mainActivity = new MainActivity();
 
     APIClient retrofit = new APIClient();
     APIInterface service;
@@ -47,7 +46,7 @@ public class GGULoginFragment extends Fragment implements View.OnClickListener {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ggulogin, container, false);
         View v = binding.getRoot();
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.empty), getResources().getColor(R.color.none), 0);
+//        mainActivity.setActionBarTitle(getResources().getString(R.string.empty), getResources().getColor(R.color.none), 0);
 
         binding.login.setOnClickListener(this);
 

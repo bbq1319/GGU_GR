@@ -21,8 +21,6 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.ggu.gguri.R.id.frame;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -33,7 +31,6 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
     GetMenuList getMenuList = new GetMenuList();
     GetBusTime getBusTime = new GetBusTime();
     CommonUtil commonUtil = new CommonUtil();
-    MainActivity mainActivity = new MainActivity();
 
     Timer timer;
     TimerTask timerTask;
@@ -57,7 +54,7 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gguhome, container, false);
         View v = binding.getRoot();
 
-        mainActivity.setActionBarTitle(getResources().getString(R.string.app_name), getResources().getColor(R.color.colorMain), 28);
+//        mainActivity.setActionBarTitle(getResources().getString(R.string.app_name), getResources().getColor(R.color.colorMain), 28);
 
         // onClick 세팅
         binding.mainGoMenu.setOnClickListener(this);
@@ -103,7 +100,6 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
         binding.mainBanner.setCurrentItem(0);
         timer = new Timer();
         timer.schedule(timerTask, 5000, 5000);
-
 
         // TextView 세팅
         getMenuList.doInBackground(getActivity(), map -> onPostExecute(map));
@@ -153,10 +149,10 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
             String fragmentTag = fragment.getClass().getSimpleName();
             getFragmentManager().popBackStack(fragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.replace(frame, fragment);
-            ft.addToBackStack(null);
+            ft.replace(R.id.frame, fragment);
+            ft.addToBackStack(fragmentTag);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
             ft.commit();
         }
@@ -173,5 +169,11 @@ public class GGUHomeFragment extends Fragment implements View.OnClickListener {
     public void onDestroy() {
         timer.cancel();
         super.onDestroy();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        System.out.println("Home onDestroyView");
     }
 }
